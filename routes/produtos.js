@@ -28,28 +28,13 @@ router.delete('/:id', (req, res, next) => {
 
   let newDB = db.filter(item => {
     if (!item[id]) {
-      return item
+      return item;
     }
   });
 
-  db.push(body);
-  res.status(200).json(body);
-});
-
-
-router.delete('/:id', (req, res) => {
-  const id = req.params.id
-
-  let newDB = db.filter(item => {
-    if (!item[id]){
-      return item;
-    }
-  })
-
   db = newDB;
   res.status(200).json(newDB);
-  // return;
-})
+});
 
 module.exports = router;
 
